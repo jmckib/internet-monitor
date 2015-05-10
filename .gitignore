@@ -1,0 +1,9 @@
+venv
+*.pyc
+.DS_Store
+staticfiles
+
+# Emacs backup and messup files
+*#
+*~
+*.#*
