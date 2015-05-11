@@ -36,7 +36,7 @@ window.draw_speed_chart = (data) ->
         d.mb_per_second = +d.mb_per_second
 
     x.domain d3.extent(data, (d) -> d.date)
-    y.domain [0, d3.max(data, (d) -> d.mb_per_second)]
+    y.domain [0, Math.max(10, d3.max(data, (d) -> d.mb_per_second))]
 
     svg.append('g')
         .attr('class', 'x axis')

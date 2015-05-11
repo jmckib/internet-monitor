@@ -29,9 +29,9 @@
       return d.date;
     }));
     y.domain([
-      0, d3.max(data, function(d) {
+      0, Math.max(10, d3.max(data, function(d) {
         return d.mb_per_second;
-      })
+      }))
     ]);
     svg.append('g').attr('class', 'x axis').attr('transform', 'translate(0,' + height + ')').call(xAxis);
     svg.append('g').attr('class', 'y axis').call(yAxis).append('text').attr('transform', 'rotate(-90)').attr('y', -1 * (margin.left - 12)).attr('dy', '.71em').attr('x', -1 * height / 2).style('text-anchor', 'middle').text('MB/s');
