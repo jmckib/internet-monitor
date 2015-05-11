@@ -1,0 +1,2 @@
+--ignore-dir=is:venv
+--ignore-dir=is:static/bootstrap
