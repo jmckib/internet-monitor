@@ -34,6 +34,8 @@
 
 		  {% if not is_down %}<h2 class="text-center">{{ latest_speed_record.mb_per_second }} MB/second at {{ latest_speed_record.when_created|date:"P" }}</h2>{% endif %}
 
+		  <div id="speed-chart" class="center-block"></div>
+
 		</div>
 	  </div>
 	</div>

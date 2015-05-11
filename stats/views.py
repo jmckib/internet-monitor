@@ -28,6 +28,9 @@ def index_view(request):
         {'date': rec.when_created.isoformat(),
          'mb_per_second': rec.mb_per_second}
         for rec in speed_records]
+    speed_data.append(
+        {'date': utc_now().isoformat(),
+         'mb_per_second': speed_data[-1]['mb_per_second']})
 
     context = {
         'is_down': is_down,
