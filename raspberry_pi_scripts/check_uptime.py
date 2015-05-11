@@ -6,7 +6,7 @@ import requests
 
 
 SLEEP_TIME = 20  # seconds
-RECORD_PING_URL = 'http://negev-wifi-uptime.herokuapp.com/stats/record-ping/'
+RECORD_PING_URL = 'http://negev-wifi-uptime.herokuapp.com/record-ping/'
 
 
 def main():

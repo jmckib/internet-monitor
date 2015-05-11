@@ -6,7 +6,7 @@ import traceback
 import requests
 
 SLEEP_TIME = 60 * 60  # one hour in seconds
-RECORD_SPEED_URL = 'http://negev-wifi-uptime.herokuapp.com/stats/record-speed/'
+RECORD_SPEED_URL = 'http://negev-wifi-uptime.herokuapp.com/record-speed/'
 
 
 def main():
