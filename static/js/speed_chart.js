@@ -29,7 +29,7 @@
       return d.date;
     }));
     y.domain([
-      0, Math.max(10, d3.max(data, function(d) {
+      0, Math.max(5, d3.max(data, function(d) {
         return d.mb_per_second;
       }))
     ]);
