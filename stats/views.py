@@ -14,11 +14,12 @@ def utc_now():
 
 
 def index_view(request):
-    latest_ping = PingRecord.objects.latest()
-    is_down = (utc_now() - latest_ping.when_created).seconds > 40
+    latest_ping_record = PingRecord.objects.latest()
+    is_down = (utc_now() - latest_ping_record.when_created).seconds > 40
 
     context = {
         'is_down': is_down,
+        'latest_speed_record': SpeedRecord.objects.latest(),
     }
 
     return render(request, 'index.html', context)

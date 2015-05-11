@@ -16,3 +16,7 @@ class PingRecord(CreateRecord):
 class SpeedRecord(CreateRecord):
     """Record of speed in KB/s from wgetting 10 MB file on wifi device."""
     kb_per_second = models.PositiveIntegerField()
+
+    @property
+    def mb_per_second(self):
+        return self.kb_per_second / 1000.0

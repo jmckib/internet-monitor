@@ -29,6 +29,7 @@
 	  <div class="row">
 		<div class="col-md-12">
 		  <h1 class="text-center">Negev's wifi is {% if is_down %}<span class="text-down">down</span>{% else %}<span class="text-up">up</span>{% endif %}.</h1>
+		  {% if not is_down %}<h2 class="text-center">{{ latest_speed_record.mb_per_second }} MB/second at {{ latest_speed_record.when_created|date:"P" }}</h2>{% endif %}
 		</div>
 	  </div>
 	</div>
