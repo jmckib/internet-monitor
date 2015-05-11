@@ -57,3 +57,25 @@ window.draw_speed_chart = (data) ->
     svg.append('path')
         .datum(data).attr('class', 'line')
         .attr('d', line)
+
+    # Draw the points w/ tooltips
+    circles = svg.append('svg:g')
+        .selectAll('.data-point')
+        .data(data)
+
+    circles
+        .enter()
+      .append('svg:circle')
+        .attr('class', 'data-point')
+        .style('opacity', 1)
+        .attr('cx', (d) -> x(d.date))
+        .attr('cy', (d) -> y(d.mb_per_second))
+        .attr('r', 3)
+        .attr('original-title', 'blah')
+
+    $('svg circle').tipsy
+        gravity: 'w'
+        html: true
+        title: ->
+            time = d3.time.format("%-I:%M %p")(this.__data__.date)
+            return "#{ this.__data__.mb_per_second } MB/s<br>#{ time }"

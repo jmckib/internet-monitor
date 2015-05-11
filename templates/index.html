@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" href="{% static "css/index.css" %}">
 	<link rel="stylesheet" href="{% static "css/speed_chart.css" %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.2/jquery.tipsy.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,6 +50,7 @@
 	<script>if(typeof($.fn.modal) === 'undefined') {document.write('<script src="{% static "bootstrap/js/bootstrap.min.js" %}"><\/script>')}</script>
 
 	<script src="http://d3js.org/d3.v3.js"></script>
+	<script src="{% static "js/jquery.tipsy.js" %}"></script>
 	<script src="{% static "js/speed_chart.js" %}"></script>
 	<script>
 	  window.draw_speed_chart({{ speed_data|safe }});

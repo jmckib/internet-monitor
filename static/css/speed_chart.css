@@ -10,3 +10,9 @@
 	stroke: steelblue;
 	stroke-width: 1.5px;
 }
+
+.data-point {
+	stroke: steelblue;
+	stroke-width: 2;
+	fill: #FFF;
+}
