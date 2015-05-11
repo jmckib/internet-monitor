@@ -3,4 +3,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^record-ping/', 'stats.views.record_ping_view'),
+    url(r'^record-speed/', 'stats.views.record_speed_view'),
 ]
