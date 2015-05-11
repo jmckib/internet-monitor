@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="{% static "css/index.css" %}">
+	<link rel="stylesheet" href="{% static "css/speed_chart.css" %}">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,8 +29,11 @@
 	<div class="container">
 	  <div class="row">
 		<div class="col-md-12">
+
 		  <h1 class="text-center">Negev's wifi is {% if is_down %}<span class="text-down">down</span>{% else %}<span class="text-up">up</span>{% endif %}.</h1>
+
 		  {% if not is_down %}<h2 class="text-center">{{ latest_speed_record.mb_per_second }} MB/second at {{ latest_speed_record.when_created|date:"P" }}</h2>{% endif %}
+
 		</div>
 	  </div>
 	</div>
@@ -41,5 +45,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<!-- fallback to local if CDN unavailable -->
 	<script>if(typeof($.fn.modal) === 'undefined') {document.write('<script src="{% static "bootstrap/js/bootstrap.min.js" %}"><\/script>')}</script>
+
+	<script src="http://d3js.org/d3.v3.js"></script>
+	<script src="{% static "js/speed_chart.js" %}"></script>
+	<script>
+	  window.draw_speed_chart({{ speed_data|safe }});
+	</script>
   </body>
 </html>
