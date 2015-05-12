@@ -52,7 +52,7 @@ window.draw_speed_chart = (data) ->
         .attr('dy', '.71em')
         .attr('x', -1 * (height) / 2)
         .style('text-anchor', 'middle')
-        .text 'MB/s'
+        .text 'Megabytes/s'
 
     svg.append('path')
         .datum(data).attr('class', 'line')

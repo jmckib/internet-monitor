@@ -11,11 +11,9 @@ RECORD_SPEED_URL = 'http://negev-wifi-uptime.herokuapp.com/record-speed/'
 
 def main():
     while True:
-        # Download 10MB file
         try:
             output = subprocess.check_output(
-                ['wget', '-O', '/dev/null',
-                 'http://speedtest.wdc01.softlayer.com/downloads/test10.zip'],
+                ['speedtest-cli'],
                 stderr=subprocess.STDOUT)
         except:
             traceback.print_exc()
@@ -23,18 +21,20 @@ def main():
             continue
 
         # get download speed from wget output
-        output_match = re.search(r'([0-9.]+ [KM]B/s)', output)
+        output_match = re.search(r'Download: ([0-9.]+ [KM]bit/s)', output)
         if not output_match:
             print output
             time.sleep(SLEEP_TIME)
             continue
 
-        speed_str, units = output_match.group().split()
+        speed_str, units = output_match.group().split()[1:]
         speed = float(speed_str)
 
-        # Convert to KB/s
-        if units == 'MB/s':
-            speed *= 1000
+        # Convert to Kilobyte/s
+        if units == 'Mbit/s':
+            speed *= 125
+        elif units == 'Kbit/s':
+            speed *= 0.125
         speed = int(speed)  # dont need fractional kb
 
         # upload speed to website
