@@ -48,7 +48,7 @@ window.draw_speed_chart = (data) ->
         .call(yAxis)
       .append('text')
         .attr('transform', 'rotate(-90)')
-        .attr('y', -1 * (margin.left - 12))
+        .attr('y', -1 * (margin.left - 17))
         .attr('dy', '.71em')
         .attr('x', -1 * (height) / 2)
         .style('text-anchor', 'middle')
