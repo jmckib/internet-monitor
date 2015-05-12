@@ -34,7 +34,7 @@
       }))
     ]);
     svg.append('g').attr('class', 'x axis').attr('transform', 'translate(0,' + height + ')').call(xAxis);
-    svg.append('g').attr('class', 'y axis').call(yAxis).append('text').attr('transform', 'rotate(-90)').attr('y', -1 * (margin.left - 17)).attr('dy', '.71em').attr('x', -1 * height / 2).style('text-anchor', 'middle').text('Megabytes/s');
+    svg.append('g').attr('class', 'y axis').call(yAxis).append('text').attr('transform', 'rotate(-90)').attr('y', -1 * (margin.left - 7)).attr('dy', '.71em').attr('x', -1 * height / 2).style('text-anchor', 'middle').text('Megabytes/s');
     svg.append('path').datum(data).attr('class', 'line').attr('d', line);
     circles = svg.append('svg:g').selectAll('.data-point').data(data);
     circles.enter().append('svg:circle').attr('class', 'data-point').style('opacity', 1).attr('cx', function(d) {
